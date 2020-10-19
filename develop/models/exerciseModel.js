@@ -26,19 +26,15 @@ const ExerciseSchema = new Schema({
         },
         weight: {
             type: Number,
-            required: false
         },
         reps: {
             type: Number,
-            required: false,
         },
         sets: {
             type: Number,
-            required: false,
         },
         distance: {
             type: Number,
-            required: false
         }
     }]
 });
@@ -49,6 +45,6 @@ ExerciseSchema.virtual("totalDuration").get(function() {
     }, 0);
 });
 
-const exerciseModel = mongoose.model("Exercise", ExerciseSchema);
+const Workout = mongoose.model("Exercise", ExerciseSchema);
 
-module.exports = exerciseModel;
+module.exports = Workout;
