@@ -24,8 +24,8 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
   console.log(params);
   // console.log(res)
   Workout.findByIdAndUpdate(
-    {id:  params.id},
-    {exercises: [{
+    {_id:  params.id},
+    {$push: { exercises: {
       type: body.type,
       name:  body.name,
       duration: body.duration,
@@ -33,7 +33,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
       reps:  body.reps,
       sets:  body.sets,
       distance:  body.distance
-    }]
+    } }
     }
   )
   .then(res => {
@@ -56,7 +56,9 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find({}).limit(7);
+  Workout.find({}).limit(7).then(function(data){
+    res.json(data)
+  });
 });
 
 router.delete("/api/workouts", ({ body }, res) => {
