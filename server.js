@@ -8,13 +8,14 @@ const app = express();
 
 app.use(logger("dev"));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.mongodburl || "mongodb://localhost/workout",
- {
+mongoose.connect(process.env.mongodburl || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
