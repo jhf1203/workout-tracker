@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+// Below will be the schema for our Workout Object
 const ExerciseSchema = new Schema({
     day: {
         type: Date,
@@ -24,6 +25,9 @@ const ExerciseSchema = new Schema({
             type: Number,
             required: "Please enter the duration of this exercise"
         },
+
+        // We will not require exercises that are specific to only cardio or resistance
+
         weight: {
             type: Number,
         },
@@ -39,10 +43,11 @@ const ExerciseSchema = new Schema({
     }]
 }, {
     toJSON: {
-        // include any virtual properties when data is requested
         virtuals: true
     }
 });
+
+// This gives us the total duration of our exercises for each workout
 
 ExerciseSchema.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {

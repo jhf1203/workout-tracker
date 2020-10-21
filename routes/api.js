@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const Workout = require("../models/exerciseModel");
 
+// Creating a new workout
 router.post("/api/workouts", (req, res) => {
-  // 200 code received on this, but both req.body and req.params are empty?
   Workout.create({
       exercises: []
     })
@@ -14,6 +14,7 @@ router.post("/api/workouts", (req, res) => {
     })
 });
 
+// Adding an exercise to our workout using exerciseModel.js
 router.put("/api/workouts/:id", ({
   body,
   params
@@ -41,6 +42,7 @@ router.put("/api/workouts/:id", ({
     })
 });
 
+// Fetching all of our workouts
 router.get("/api/workouts", (req, res) => {
   Workout.find()
     .then(dbWorkout => {
@@ -51,13 +53,18 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+// Getting all of our workouts within range, for the stats page.
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find({}).limit(7)
-    .then(function (data) {
-      res.json(data)
-    });
+  Workout.find({})
+  .sort({ "day": -1 })
+  .limit(7)
+  .exec((err, docs) => {
+    if (err) throw err;
+    res.status(200).json(docs);
+  })
 });
 
+// Deleting a workout
 router.delete("/api/workouts", ({
   body
 }, res) => {
