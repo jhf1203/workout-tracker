@@ -1,57 +1,67 @@
-# Unit 17 Nosql Homework: Workout Tracker
+# workout-tracker
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+![](https://img.shields.io/badge/License-Apache-brightgreen)
+      
+## Table Of Contents
+1.  [Description](#description)
+2.  [Installation](#installation) 
+3.  [Usage](#usage)
+4.  [Collaborating](#collaborating)
+5.  [Contact](#contact)
+      
+_________________________________
+  
+### Description
+      
+This is an application that allows the user to create a workout consisting of multiple exercises.  It also features an attractive UI that shows the user's exercise statistics over a seven day period.
 
-## User Story
+This application is served on heroku and written in express.  The database used is MongoDB with the Mongoose package.
+      
+_________________________________
+  
+### Instructions
+  
+Link to deployment can be found [here.](https://morning-escarpment-21710.herokuapp.com/)
 
-* As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+There is no installation required to use this application, as it is being hosted live on Heroku, you are free to access it as you please.
+  
+_________________________________
+  
+### Usage
+  
+Please enjoy a demonstration of this app's functionality.  
 
-## Business Context
+![image](./public/assets/demo-gif.gif)
 
-A consumer will reach their fitness goals more quickly when they track their workout progress.
+#### Homepage:
+- The landing page gives the user two options:  Continue their previous workout or begin a new workout.  You'll note the 24-bit character added onto the end of the url, this references the previous workout that was saved, and the data previously entered from it is featured on this landing page.  
+- Both choosing to continue an existing workout and adding a new one will route you to the exercise menu, what will change depending on the button clicked will be that workout ID if you chose to perform a new workout.
 
-## Acceptance Criteria
+#### Exercise Menu:
+- Using the dropdown menus and input fields, enter the data that you would like to record for your workout.  Only the workout name and type are required, and the parameters change depending on the type of workout (Cardio vs. Resistance).
+- The "Add Exercise" button will add this particular workout into your exercise routine, so you can structure your workout by day and activity.  The "Complete" option will record it into your exercise data that is displayed on the Dashboard page.
 
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+#### Dashboard:
+- This page visualizes you recent workout history.  A line graph and pie chart display the time you've spent working out in the last seven days, a bar graph illustrates how much weight you've lifted by day, and a doughnut chart represents the distance you've spent traveling with your cardio workouts.
 
-The user should be able to:
+  
+_________________________________
+  
+### Collaborating
+  
+Got an idea?  A bug to report?  Or even a thought on how the application could run more efficiently?  Log it [here](https://github.com/jhf1203/workout-tracker/issues) as an issue, and we'll talk about it!
+  
+_________________________________
+  
+### Contact Me
+  
+#### Jim Faulkner
+- [E-mail](mailto:jhf1203@gmail.com)
+- [Github](jhf1203)
+  
+_________________________________
+  
+### License
+  
+This application is [licensed](https://www.apache.org/licenses/LICENSE-2.0) under the Apache License 2.0
 
-  * Add exercises to a previous workout plan.
-
-  * Add new exercises to a new workout plan.
-
-  * View the combined weight of multiple exercises on the `stats` page.
-
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
-
-  * [Set Up MongoDB Atlas](../important/MongoAtlas-Setup.md)
-
-  * [Deploy with Heroku and MongoDB Atlas](../important/MongoAtlas-Deploy.md)
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
-
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We want you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL to the deployed application
-
-* The URL to the GitHub repository
